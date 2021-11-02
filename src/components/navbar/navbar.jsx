@@ -7,8 +7,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { makeStyles } from '@mui/styles';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Typography from '@mui/material/Typography';
+import DropDownMenu from  '../catalogo/itemlistcontainer/itemlistcontainer';
+
+
 
 
 const useStyles = makeStyles({
@@ -17,7 +19,7 @@ const useStyles = makeStyles({
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white',
     padding: '0 30px',
-    height:'60px'
+    height:'80px'
   },
 });
 
@@ -61,7 +63,7 @@ export default function MenuAppBar() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <ShoppingCartIcon/>
+                
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -83,9 +85,12 @@ export default function MenuAppBar() {
               </Menu>
             </div>
           )}
+          <DropDownMenu/>
         </Toolbar>
       </AppBar>
     </Box>
   );
 }
+
+
 
