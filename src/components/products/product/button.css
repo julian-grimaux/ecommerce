@@ -1,0 +1,48 @@
+.button{
+    border: none;
+    background-color: white;
+    box-shadow: 0px 0px 10px #f0f7f8;
+    font-weight: bold;
+    font-size: 1rem;
+    color: inherit;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 250ms ease-in-out,
+    transform 50ms ease-in-out;
+}
+
+.button:hover{
+    background-color:#d8d9da;
+}
+
+.button:active{
+    transform: scale(0.9);
+}
+
+.negative{
+    color: red;
+    animation: pulse 500ms ease-in-out;
+}
+
+.positive{
+    color: green;
+    animation: pulse 500ms ease-in-out;
+}
+
+@keyframes pulse{
+    0%, 100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+}
+
+.cardactions{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}

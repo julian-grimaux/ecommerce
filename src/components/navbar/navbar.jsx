@@ -15,11 +15,10 @@ import DropDownMenu from  '../catalogo/itemlistcontainer/itemlistcontainer';
 
 const useStyles = makeStyles({
   appbar: {
-    background: 'linear-gradient(45deg, rgba(251,0,182,1) 75%, rgba(255,82,82,1) 100%)',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white',
     padding: '0 30px',
-    height:'80px'
+    height:'100px'
   },
 });
 
@@ -39,7 +38,7 @@ export default function MenuAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" className={classes.appbar}>
+      <AppBar position="static" color="secondary" className={classes.appbar}>
         <Toolbar>
         <IconButton
             size="large"
@@ -50,8 +49,8 @@ export default function MenuAppBar() {
           >
             <MenuIcon />
           </IconButton>
-        <Typography variant="h3" component="h3" sx={{mr: 2,flexGrow:1}} className={classes.titleNav}>
-         CandyShoop
+        <Typography variant="h3" component="h3" sx={{mr: 2}} className={classes.titleNav}>
+         E-commerce
         </Typography> 
           {auth && (
             <div>
