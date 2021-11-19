@@ -1,6 +1,8 @@
 import NavBar from './components/navbar/navbar';
 import './App.css';
 import Products from './components/products/Products';
+import Itemdetailcontainer from './components/itemdetail/itemdetailcontainer';
+
 
 
 
@@ -11,6 +13,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <Products/>
+      <Itemdetailcontainer/>
     </div>
   );
 }

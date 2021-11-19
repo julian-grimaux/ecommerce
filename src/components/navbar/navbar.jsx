@@ -38,18 +38,18 @@ export default function MenuAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="secondary" className={classes.appbar}>
+      <AppBar position="static" color="inherit" className={classes.appbar} sx={{mb:3}}>
         <Toolbar>
         <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2}}
+            sx={{ mr: 2,mt:3}}
           >
             <MenuIcon />
           </IconButton>
-        <Typography variant="h3" component="h3" sx={{mr: 2}} className={classes.titleNav}>
+        <Typography variant="h3" component="h3" sx={{mr: 2,mt:3}} className={classes.titleNav}>
          E-commerce
         </Typography> 
           {auth && (
@@ -84,7 +84,7 @@ export default function MenuAppBar() {
               </Menu>
             </div>
           )}
-          <DropDownMenu/>
+          
         </Toolbar>
       </AppBar>
     </Box>
