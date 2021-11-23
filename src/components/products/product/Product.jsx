@@ -3,6 +3,7 @@ import {Card, CardMedia, CardContent,CardActions,Typography,IconButton} from '@m
 import {AddShoppingCart} from '@material-ui/icons';
 import useStyles from './style';
 import './button.css';
+import Products from '../Products';
 import getProduct from '../../../services/Promise'
 
 
@@ -29,7 +30,7 @@ const Product = ({product}) => {
         if (count == 0)return;
         setCount (count - 1);
     };
-
+ 
     useEffect(() => {
     getProduct()
         .then(res =>{
@@ -37,6 +38,7 @@ const Product = ({product}) => {
         })
         .catch(err => alert('error',err))
     },[])
+    
 
     return (
         <Card className={classes.root}>

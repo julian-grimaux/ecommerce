@@ -19,7 +19,7 @@ const products = [
 
 const Products = () => {
     const classes= useStyles();
-    
+
     return(
     <main className={classes.main}>
         <Grid container justify="center" spacing ={4}>
