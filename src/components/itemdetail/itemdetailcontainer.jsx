@@ -1,12 +1,13 @@
-import * as React from 'react';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import {Grid} from '@material-ui/core';
-import Typography from '@mui/material/Typography';
-import Button from '@restart/ui/esm/Button';
+import {Grid,Button} from '@material-ui/core';
 import './itemdetail.css'
-import { CardMedia } from '@mui/material';
 import useStyles from '../products/product/style'
+import {Card, CardMedia, CardContent,CardActions,Typography,IconButton} from '@material-ui/core';
+import {AddShoppingCart} from '@material-ui/icons';
+import Product from '../products/product/Product';
 
 
 
@@ -25,35 +26,8 @@ const products = [
 
 
 export default function Itemdetailcontainer() {
-  const classes= useStyles();
+
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent:'center',
-        '& > :not(style)': {
-          m: 5,
-          width: 1300,
-          height: 900,
-        },
-      }}
-    >
-      <Paper elevation={24} className='Grid'>
-      <Grid container justify='center' className='container'>
-        {products.map((product)=>(
-          <Grid item key={product.id}>
-             {product.name}
-            </Grid>
-        ))}
-      </Grid>
-      
-          <Grid>
-             <CardMedia className={classes.media} image={products.image}></CardMedia>
-            </Grid>
-      
-      </Paper>
-    </Box>
-    
+    <h1>xD</h1>
   );
 }

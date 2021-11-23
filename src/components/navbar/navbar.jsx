@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { makeStyles } from '@mui/styles';
 import Typography from '@mui/material/Typography';
-import DropDownMenu from  '../catalogo/itemlistcontainer/itemlistcontainer';
+import DropDownMenu from '../catalogo/itemlistcontainer/itemlistcontainer';
 
 
 
@@ -18,13 +18,13 @@ const useStyles = makeStyles({
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white',
     padding: '0 30px',
-    height:'100px'
+    height: '100px'
   },
 });
 
 
 export default function MenuAppBar() {
-  const classes= useStyles();
+  const classes = useStyles();
   const [auth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -38,20 +38,20 @@ export default function MenuAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="inherit" className={classes.appbar} sx={{mb:3}}>
+      <AppBar position="static" color="inherit" className={classes.appbar} sx={{ mb: 3 }}>
         <Toolbar>
-        <IconButton
+          <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2,mt:3}}
+            sx={{ mr: 2, mt: 3 }}
           >
             <MenuIcon />
           </IconButton>
-        <Typography variant="h3" component="h3" sx={{mr: 2,mt:3}} className={classes.titleNav}>
-         E-commerce
-        </Typography> 
+          <Typography variant="h3" component="h3" sx={{ mr: 2, mt: 3 }} className={classes.titleNav}>
+            E-commerce
+          </Typography>
           {auth && (
             <div>
               <IconButton
@@ -62,7 +62,7 @@ export default function MenuAppBar() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                
+
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -84,7 +84,6 @@ export default function MenuAppBar() {
               </Menu>
             </div>
           )}
-          
         </Toolbar>
       </AppBar>
     </Box>
