@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import {Grid,Button} from '@material-ui/core';
 import './itemdetail.css'
-import useStyles from '../products/product/style'
+import useStyles from '../itemListContainer/item/style'
 import {Card, CardMedia, CardContent,CardActions,Typography,IconButton} from '@material-ui/core';
 import {AddShoppingCart} from '@material-ui/icons';
-import Product from '../products/product/Product';
+import Product from '../itemListContainer/item/Item';
 
 
 
@@ -24,10 +24,24 @@ const products = [
 ];
 
 
-
-export default function Itemdetailcontainer() {
-
+const UsersList = ({usersList, setCurrentUser}) => {
   return (
-    <h1>xD</h1>
+     <Fragment>
+          <div>
+              {
+                  usersList?.map((user)=>{
+                      const {first,last}= user.name
+                      const {value} = user.id
+                      return(
+                          <Link to={`/user/${value}`} onClick={() => setCurrentUser(user)}>
+                          <h1>{first}{last}</h1>
+                          </Link>
+                      )
+                  })
+              }
+          </div>
+     </Fragment>
   );
 }
+
+export default UsersList;
