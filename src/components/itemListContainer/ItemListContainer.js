@@ -1,12 +1,11 @@
-import React, {useState,useEffect, Fragment}  from 'react';
+import React, {useState,useEffect}  from 'react';
 import {Grid} from '@material-ui/core';
 import Item from './item/Item';
-import { Link } from 'react-router-dom';
 import useStyles from './item/style';
 import GetProducts from '../../services/Promise' 
 
 
-const ItemListContainer = (itemList,setCurrentItem) => {
+const ItemListContainer = () => {
     const classes= useStyles();
 
     const [items, setItems] = useState([])
@@ -20,24 +19,15 @@ const ItemListContainer = (itemList,setCurrentItem) => {
     }, [])
 
     return(
-    <Fragment>
     <main className={classes.main}>
         <Grid container justifyContent="center" spacing ={4}>
-        {
-            itemList.map((item)=>{
-                const {value} = item.id
-            return(
-                <Grid item key={value} xs={12} sm={6} md={4} lg={3}>
-                    <Link to={`/item/${value}`} onClick={() => setCurrentItem(item)}>
+            {items.map((item)=>(
+                <Grid item key={item.id} xs={12} sm={6} md={4} lg={3}>
                     <Item item={item}/>
-                    </Link>
-                </Grid>)
-            }
-            )
-        }
+                </Grid>
+            ))}
         </Grid>
     </main>
-    </Fragment>
     );
 }   
 
