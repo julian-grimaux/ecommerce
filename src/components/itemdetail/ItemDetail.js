@@ -1,12 +1,11 @@
 import React, { useState, Fragment } from 'react';
+import './itemdetail.css'
+import { Card, CardMedia, CardContent, CardActions, Typography,} from '@material-ui/core';
+import ItemCount from '../itemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { Grid, Button } from '@material-ui/core';
-import './itemdetail.css'
-import useStyles from '../itemListContainer/item/style'
-import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
-import { AddShoppingCart } from '@material-ui/icons';
+import { Button } from '@material-ui/core';
 
 const items = [
     {id:1, name: 'producto1', description: 'descripcion1', price:'$10',stock:'5',image:'https://img.dsncdn.net/full/011/jqB/HEq.jpg',},
@@ -19,49 +18,45 @@ const items = [
     {id:8, name: 'producto8', description: 'descripcion8', price:'$80',stock:'20',image:'https://i.imgur.com/6C653Oj.jpeg',},
 ];
 
-const ItemDetail = (currentItem) => {
-    
-    const stock = null;
+const ItemDetail = (item) => {
 
-    const [count, setCount] = useState(0);
-
-    const handleSumCount = () => {
-        if (count == stock) return;
-        setCount(count + 1);
-    };
-
-    const handleSubtractCount = () => {
-        if (count == 0) return;
-        setCount(count - 1);
-    };
-
-    const classes = useStyles();
-
-    const {name} = currentItem.name
     return (
         <Fragment>
-             <Card className='cardImg'>
-                        <img src={('https://img.dsncdn.net/full/011/jqB/HEq.jpg')} alt="" className='imgDetail' />
-                    </Card>
-                    <CardMedia>
-                        <Typography variant='h3'>{name}</Typography>
-                        <Typography variant='h5'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia at voluptatibus ad, laudantium aperiam vitae veniam. Magnam hic rem doloribus enim ipsam. Sit, ex delectus? Qui obcaecati perferendis vero ipsa?</Typography>
-                        <Typography variant ='h6'>20U$</Typography>
-                        <CardActions disableSpacing className='cardactions'>
-                            <Typography variant="h6" color="textSecondary"><span>stock:</span></Typography>
-                            <div className={classes.countcontainer}>
-                                <div className={classes.buttoncontainer}>
-                                    <button onClick={handleSumCount} className='button'>+</button>
-                                    <h1 className={count > 0 ? "positive" : "negative"}>{count}</h1>
-                                    <button onClick={handleSubtractCount} className='button'>-</button>
-                                </div>
-                            </div>
-                            <IconButton aria-label="Add to Cart">
-                                <AddShoppingCart/>
-                            </IconButton>
-                        </CardActions>
-                    </CardMedia>
-        </Fragment>
+        <Box sx={{
+            display: 'flex',
+            justifyContent: 'start',
+            ml: 6.7,
+        }}>
+            <Button className="buttonBackProducts"><Link to="/products">Productos</Link></Button>
+        </Box>
+        <Box
+            sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                '& > :not(style)': {
+                    m: 5,
+                    width: 1300,
+                    height: 500,
+                },
+            }}
+        >
+            <Paper elevation={24} className='Grid'>
+            <Card className='cardImg'>
+                    <img src={('https://img.dsncdn.net/full/011/jqB/HEq.jpg')} alt="" className='imgDetail' />
+                </Card>
+                <CardMedia>
+                    <Typography variant='h3'>nombre</Typography>
+                    <Typography variant='h5'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia at voluptatibus ad, laudantium aperiam vitae veniam. Magnam hic rem doloribus enim ipsam. Sit, ex delectus? Qui obcaecati perferendis vero ipsa?</Typography>
+                    <Typography variant ='h6'>10U$</Typography>
+                    <CardActions disableSpacing className='cardactions'>
+                        <Typography variant="h6" color="textSecondary"><span>stock:</span></Typography>
+                    <ItemCount stock={item.stock}/>
+                    </CardActions>
+                </CardMedia>
+            </Paper>
+        </Box>
+    </Fragment>
     )
 }
 

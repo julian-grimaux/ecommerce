@@ -21,7 +21,7 @@ const Item = ({item, setCurrentItem}) => {
                         </Typography>
                     </div>
                     <Typography variant="h4" color="textSecondary">{item.description}</Typography>
-                    <Button><Link to={`/item/${item.id}`} onClick={() => setCurrentItem(item)}>Detalles</Link></Button>
+                    <Button><Link to={`/item/${item.id}`} onClick={() => setCurrentItem(item)}>Detail</Link></Button>
             </CardContent>
         </Card>
     )
