@@ -4,7 +4,9 @@ import { AddToCart} from '../buttons/Buttons';
 
 
 
-const ItemCount = ({stock}) => {
+const ItemCount = (stock) => {
+
+
     const classes = useStyles();
 
     const initial = 1;
@@ -21,7 +23,7 @@ const ItemCount = ({stock}) => {
     };
 
     const handleOnAdd = () => {
-        setCount(0);
+        setCount(initial);
     };
 
     return (

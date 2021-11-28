@@ -18,8 +18,13 @@ const items = [
     {id:8, name: 'producto8', description: 'descripcion8', price:'$80',stock:'20',image:'https://i.imgur.com/6C653Oj.jpeg',},
 ];
 
-const ItemDetail = (item) => {
-
+const ItemDetail = ({currentItem}) => {
+    const { name } = currentItem.name
+    const { price } = currentItem.price
+    const { value } = currentItem.id
+    const { image } = currentItem.image
+    const { description } = currentItem.description
+    const { stock } = currentItem.stock
     return (
         <Fragment>
         <Box sx={{
@@ -46,12 +51,12 @@ const ItemDetail = (item) => {
                     <img src={('https://img.dsncdn.net/full/011/jqB/HEq.jpg')} alt="" className='imgDetail' />
                 </Card>
                 <CardMedia>
-                    <Typography variant='h3'>nombre</Typography>
+                    <Typography variant='h3'>{name}</Typography>
                     <Typography variant='h5'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia at voluptatibus ad, laudantium aperiam vitae veniam. Magnam hic rem doloribus enim ipsam. Sit, ex delectus? Qui obcaecati perferendis vero ipsa?</Typography>
                     <Typography variant ='h6'>10U$</Typography>
                     <CardActions disableSpacing className='cardactions'>
-                        <Typography variant="h6" color="textSecondary"><span>stock:</span></Typography>
-                    <ItemCount stock={item.stock}/>
+                        <Typography variant="h6" color="textSecondary"><span>stock:{stock}</span></Typography>
+                    <ItemCount/>
                     </CardActions>
                 </CardMedia>
             </Paper>
