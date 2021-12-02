@@ -46,3 +46,22 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.Card{
+    max-width: 100%;
+    margin: 20px;
+}
+
+.Card:hover{
+    transform: scale(1.01);
+    transition: all 0.3s;
+}
+
+.buttonDetail{
+    font-weight: 600 !important;
+    color: black;
+}
+
+ .MuiButton-label{
+    margin-left: 0px !important;
+}

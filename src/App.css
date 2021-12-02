@@ -47,6 +47,11 @@
   color: black !important;
 }
 
+a{
+  text-decoration: none !important;
+  color: black;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

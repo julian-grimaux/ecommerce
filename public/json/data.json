@@ -2,67 +2,76 @@
     "results":[
         {
           "id":{"value":"1"},
-          "name":{"name":"nombre1"},
+          "name":{"name":"AK-47"},
+          "type":{"rifleMedium":"1"},
           "image":{"image":"https://img.dsncdn.net/full/011/jqB/HEq.jpg"},
           "description":{"description":"descripcion1"},
-          "price":{"price":"10"},
-          "stock":{"stock":"20"}
+          "price":{"price":"59.99"},
+          "stock":{"stock":"5"}
         },
         {
             "id":{"value":"2"},
-            "name":{"name":"nombre2"},
-            "image":{"image":"https://img.dsncdn.net/full/011/jqB/HEq.jpg"},
+            "name":{"name":"M4A4"},
+            "type":{"rifleMedium":"1"},
+            "image":{"image":"https://steamuserimages-a.akamaihd.net/ugc/397834442114554521/E27ED190E13DF6BB1B52A166405963E6A725CA06/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"},
             "description":{"description":"descripcion2"},
-            "price":{"price":"10"},
+            "price":{"price":"49.99"},
             "stock":{"stock":"10"}
           },
           {
             "id":{"value":"3"},
-            "name":{"name":"nombre3"},
-            "image":{"image":"https://img.dsncdn.net/full/011/jqB/HEq.jpg"},
+            "name":{"name":"AWP"},
+            "type":{"rifleLarge":"2"},
+            "image":{"image":"https://steamuserimages-a.akamaihd.net/ugc/938331559640166570/098730A57286A2118D2D1F96D739B68D06C04D61/"},
             "description":{"description":"descripcion3"},
-            "price":{"price":"10"},
-            "stock":{"stock":"5"}
+            "price":{"price":"59.99"},
+            "stock":{"stock":"3"}
           },
           {
             "id":{"value":"4"},
-            "name":{"name":"nombre4"},
-            "image":{"image":"https://img.dsncdn.net/full/011/jqB/HEq.jpg"},
+            "name":{"name":"SCAR 20"},
+            "type":{"rifleLarge":"2"},
+            "image":{"image":"https://i.imgur.com/WvQU96p.png"},
             "description":{"description":"descripcion4"},
-            "price":{"price":"10"},
+            "price":{"price":"29.99"},
             "stock":{"stock":"10"}
           },
           {
             "id":{"value":"5"},
-            "name":{"name":"nombre5"},
-            "image":{"image":"https://img.dsncdn.net/full/011/jqB/HEq.jpg"},
+            "name":{"name":"USP-S"},
+            "type":{"pistols":"pistols"},
+            "image":{"image":"https://steamuserimages-a.akamaihd.net/ugc/548681523287989076/82B01BE571CD658FAD1139FE54929AE39AFED711/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"},
             "description":{"description":"descripcion5"},
-            "price":{"price":"10"},
-            "stock":{"stock":"10"}
+            "price":{"price":"19.99"},
+            "stock":{"stock":"8"}
           },
+
           {
             "id":{"value":"6"},
-            "name":{"name":"nombre6"},
-            "image":{"image":"https://img.dsncdn.net/full/011/jqB/HEq.jpg"},
-            "description":{"description":"descripcion6"},
-            "price":{"price":"10"},
-            "stock":{"stock":"10"}
-          },
+            "name":{"name":"P250"},
+            "type":{"pistols":"pistols"},
+            "image":{"image":"https://i.imgur.com/6C653Oj.jpeg"},
+            "description":{"description":"descripcion8"},
+            "price":{"price":"14.99"},
+            "stock":{"stock":"12"}
+          }, 
           {
             "id":{"value":"7"},
-            "name":{"name":"nombre7"},
-            "image":{"image":"https://img.dsncdn.net/full/011/jqB/HEq.jpg"},
+            "name":{"name":"MP9"},
+            "type":{"smg":"4"},
+            "image":{"image":"https://i.imgur.com/5Ov9kPY.jpeg"},
             "description":{"description":"descripcion7"},
-            "price":{"price":"10"},
-            "stock":{"stock":"10"}
+            "price":{"price":"9.99"},
+            "stock":{"stock":"20"}
           },
           {
             "id":{"value":"8"},
-            "name":{"name":"nombre8"},
-            "image":{"image":"https://img.dsncdn.net/full/011/jqB/HEq.jpg"},
-            "description":{"description":"descripcion8"},
-            "price":{"price":"10"},
-            "stock":{"stock":"10"}
-          }  
+            "name":{"name":"MP5 50"},
+            "type":{"smg":"4"},
+            "image":{"image":"https://steamuserimages-a.akamaihd.net/ugc/970978854187768464/1BB82DE31288889444085065618A504929E91627/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"},
+            "description":{"description":"descripcion6"},
+            "price":{"price":"9.99"},
+            "stock":{"stock":"30"}
+          } 
     ]
 }

@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
 import { makeStyles } from '@mui/styles';
 import Typography from '@mui/material/Typography';
 import SideBarData from './SideBarData';
 import './navbar.css'
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import GetProducts from '../../services/Promise';
+import { CartWidget } from "../Icons/Icons";
+
+
 
 
 
@@ -74,8 +74,8 @@ export default function MenuAppBar() {
                 return (
                   <li key={index} className={item.cName} onClick={showSidebar}>
                     <Link to={item.path}>
-                      {item.icon}
-                      <span  onClick={showSidebar}>{item.title}</span>
+                      <span className='iconSideBar'>{item.icon}</span>
+                      <span className='spanSidebar' onClick={showSidebar}>{item.title}</span>
                     </Link>
                   </li>
                 );
@@ -83,9 +83,8 @@ export default function MenuAppBar() {
             </ul>
           </nav>
           <Typography variant="h3" component="h3" sx={{ mr: 2, mt: 3, flexGrow: 1 }} className={classes.titleNav}>
-            Cyrex Collection
           </Typography>
-          <ShoppingCartIcon className='iconCart' />
+          <Link to="/cart"><CartWidget /></Link>
         </Toolbar>
       </AppBar>
     </Box>

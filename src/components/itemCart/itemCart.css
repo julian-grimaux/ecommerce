@@ -1,0 +1,60 @@
+.imgCart{
+    height: 5em;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.flexItems{
+    display: flex;
+}
+
+.flexContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexQuantity{
+    display: flex;
+    align-items: center;
+}
+
+.txtContainer{
+    margin-top: 8px;
+}
+
+.txtName{
+    font-size: 1.50rem;
+    font-weight: 700;
+}
+
+.txtPrice{
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.txtQuantity{
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.buttonRemove{
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 6px 5px 0px 5px;
+}
+
+@media (max-width:768px){
+    .flexContainer{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .flexItems{
+        flex-direction: column;
+    }
+
+    .flexQuantity{
+        flex-direction: column;
+    }
+}

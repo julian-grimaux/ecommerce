@@ -1,16 +1,17 @@
-import React, { Fragment,useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import useStyles from '../itemListContainer/item/style'
-import { AddToCart} from '../buttons/Buttons';
+import { AddToCart, FinishButton, BackHome } from '../buttons/Buttons';
 
 
 
-const ItemCount = (stock) => {
 
+const ItemCount = ({ stock, onAdd }) => {
 
     const classes = useStyles();
 
     const initial = 1;
     const [count, setCount] = useState(initial);
+    const [display, setDisplay] = useState("hidden");
 
     const handleSumCount = () => {
         if (count == stock) return;
@@ -23,7 +24,9 @@ const ItemCount = (stock) => {
     };
 
     const handleOnAdd = () => {
+        onAdd(count);
         setCount(initial);
+        setDisplay("block");
     };
 
     return (
@@ -35,7 +38,16 @@ const ItemCount = (stock) => {
                     <button onClick={handleSubtractCount} className='button'>-</button>
                 </div>
             </div>
-            <AddToCart handleOnAdd={handleOnAdd}></AddToCart>
+            {display === "block" ? (
+                <div className="space-y-2">
+                    <FinishButton />
+                    <BackHome />
+                </div>
+            ) : (
+                <>
+                    <AddToCart setDisplay={setDisplay} handleOnAdd={handleOnAdd} />
+                </>
+            )}
         </Fragment>
     )
 }
