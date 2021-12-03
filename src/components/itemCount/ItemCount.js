@@ -2,10 +2,7 @@ import React, { Fragment, useState } from 'react'
 import useStyles from '../itemListContainer/item/style'
 import { AddToCart, FinishButton, BackHome } from '../buttons/Buttons';
 
-
-
-
-const ItemCount = ({ stock, onAdd }) => {
+const ItemCount = ({ Stock, onAdd }) => {
 
     const classes = useStyles();
 
@@ -14,7 +11,7 @@ const ItemCount = ({ stock, onAdd }) => {
     const [display, setDisplay] = useState("hidden");
 
     const handleSumCount = () => {
-        if (count == stock) return;
+        if (count == Stock) return;
         setCount(count + 1);
     };
 

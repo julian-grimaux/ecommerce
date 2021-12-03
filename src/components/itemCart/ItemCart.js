@@ -14,13 +14,6 @@ const ItemCart = ({ name, price, image, id, quantity }) => {
 
   return (
     <Fragment>
-      <Box sx={{
-        display: 'flex',
-        justifyContent: 'start',
-        ml: 6.7,
-      }}
-        >
-      </Box>
       <Box
         sx={{
           display: 'flex',
@@ -28,13 +21,13 @@ const ItemCart = ({ name, price, image, id, quantity }) => {
           justifyContent: 'center',
           '& > :not(style)': {
             m: 1,
-            width: '30%',
+            width: '30em',
             height: '10%',
           },
         }}
       >
-        <Link to={`/item/${id}`}>
         <Paper elevation={24} className="flexContainer">
+        <Link to={`/item/${id}`}>
           <div className='flexItems'>
             <img src={image} alt="" className='imgCart' />
             <div className='txtContainer'>
@@ -42,6 +35,7 @@ const ItemCart = ({ name, price, image, id, quantity }) => {
               <p className="txtPrice">${price}</p>
             </div>
           </div>
+          </Link>
           <div className="flexQuantity">
             <p className="txtQuantity">Cantidad: {quantity}</p>
             <button onClick={handleRemove} className="buttonRemove">
@@ -49,7 +43,6 @@ const ItemCart = ({ name, price, image, id, quantity }) => {
             </button>
           </div>
         </Paper>
-        </Link>
       </Box>
     </Fragment>
 

@@ -2,23 +2,40 @@ import React from 'react'
 import ItemList from './ItemList';
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
-import GetProducts from '../../services/Promise';
+import AnimationLoading from '../animationLoading/AnimationLoading';
+import { getFirestore } from '../../services/getFirebase';
 
 
 const ItemListContainer = () => {
-    const { id } = useParams();
-    const [products, SetProducts] = useState([]);
-    useEffect(() => {
-        GetProducts
-            .then(res => {
-                (id === undefined) ? SetProducts(res) : SetProducts(res.filter((prod) => prod.Type == id.toLowerCase()));
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
+    const { type } = useParams();
+
+    useEffect(() => {
+        const db = getFirestore();
+        db.collection("items")
+            .get()
+            .then((response) => {
+                if (response.size === 0) {
+                    console.log("vacio");
+                } else {
+                    if (type === undefined) {
+                        setProducts(response.docs.map((i) => i.data()));
+                    } else {
+                        let data = response.docs.map((i) => i.data());
+                        setProducts(data.filter((i) => i.type === type));
+                    }
+                }
             })
-            .catch(err => console.log('error al obtener productos', err))
-    }, [id])
+            .catch((error) => {
+                console.log("Error searching items", error);
+            })
+            .finally(() => setLoading(false));
+    }, [type]);
 
     return (
-        <ItemList products={products} />
+            <ItemList products={products} />
     );
 };
 export default ItemListContainer;

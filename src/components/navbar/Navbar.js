@@ -9,7 +9,6 @@ import Typography from '@mui/material/Typography';
 import SideBarData from './SideBarData';
 import './navbar.css'
 import { Link } from 'react-router-dom';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { CartWidget } from "../Icons/Icons";
 
 

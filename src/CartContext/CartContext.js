@@ -9,7 +9,7 @@ export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
     const addItem = (item, quantity) => {
-        const index = cart.findIndex((i) => i.item.Id === item.Id);
+        const index = cart.findIndex((i) => i.item.id === item.id);
 
     if (index > -1){
         const oldQy = cart[index].quantity;
@@ -26,8 +26,8 @@ export const CartContextProvider = ({ children }) => {
         setCart([]);
     }
 
-    const removeItem = (Id) => {
-        const deleteProduct = cart.filter ((prod) => prod.item.Id !== Id);
+    const removeItem = (id) => {
+        const deleteProduct = cart.filter ((prod) => prod.item.id !== id);
         setCart ([...deleteProduct]);
     };
 
@@ -37,7 +37,7 @@ export const CartContextProvider = ({ children }) => {
 
     const totalPrice = () => {
         return cart.reduce(
-            (acum,valor) => acum + valor.quantity * valor.item.Price,0
+            (acum,valor) => acum + valor.quantity * valor.item.price,0
         );
     };
 

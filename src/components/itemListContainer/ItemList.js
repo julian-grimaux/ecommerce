@@ -12,11 +12,18 @@ const ItemList = ({ products }) => {
         <Fragment>
             <main className={classes.main}>
                 <Grid container justifyContent="center" spacing={4}>
-                    {products.map(product => {
-                        return (
-                            <Item id={product.id} product={product}/>
-                        )
-                    })}
+                    {products.map((i) => (
+                        <Item
+                            key={i.id}
+                            id={i.id}
+                            name={i.name}
+                            price={i.price}
+                            image={i.image}
+                            stock={i.stock}
+                            description={i.description}
+                            type={i.type}
+                        />
+                    ))}
                 </Grid>
             </main>
         </Fragment>

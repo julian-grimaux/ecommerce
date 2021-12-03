@@ -52,6 +52,11 @@ a{
   color: black;
 }
 
+Button {
+  text-transform: none !important;
+  margin: 10px !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

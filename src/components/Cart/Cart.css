@@ -1,19 +1,29 @@
 .buttonPrimary{
-    font-weight: 550 !important;
+    font-size: 1rem !important;
     background-color: white !important;
     margin-right: 5px !important;
 }
 
+.buttonPrimary:hover{
+    background-color: rgb(241, 241, 241) !important;
+    transition: 0.2s ease;
+}
+
 .buttonClearCart{
-    font-weight: 550 !important;
-    background-color: rgb(255, 66, 66) !important;
+    font-size: 1rem !important;
+    background-color: rgb(255, 106, 106) !important;
+    transition: 0.2s ease;
     margin-left: 5px !important;
+}
+
+.buttonClearCart:hover{
+    background-color: rgb(255, 77, 77) !important;
 }
 
 .flexButtons{
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin: 20px;
 }
 
 .flexTotal{

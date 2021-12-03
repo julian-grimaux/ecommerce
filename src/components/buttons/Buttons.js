@@ -46,7 +46,7 @@ export const ButtonPrimary = ({text}) => (
       onClick={clearCart}
       className="buttonClearCart"
     > 
-    vaciar carrito
+    Vaciar carrito
     <svg
       width="24"
       height="24"

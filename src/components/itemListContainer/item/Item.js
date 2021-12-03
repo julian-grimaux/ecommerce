@@ -6,23 +6,23 @@ import useStyles from './style';
 import './item.css';
 
 
-const Item = ({product}) => {
+const Item = ({ id, image, stock, name, price, description, type}) => {
     const classes = useStyles();
 
     return (
-        <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+        <Grid item key={id} xs={12} sm={6} md={4} lg={3}>
             <Card className='Card'>
-                <CardMedia className={classes.media} image={product.Image} title={product.Name} />
+                <CardMedia className={classes.media} image={image} title={name} />
                 <CardContent>
                     <div className={classes.CardContent}>
                         <Typography variant="h4" gutterBottom>
-                            {product.Name}
+                            {name}
                         </Typography>
                         <Typography variant="h6">
-                            US$ {product.Price}
+                            US$ {price}
                         </Typography>
                     </div>
-                    <Button variant="contained" color="secondary" className='buttonDetail'><Link to={`/item/${product.Id}`}>Detalle</Link></Button>
+                    <Button variant="contained" color="secondary" className='buttonDetail'><Link to={`/item/${id}`}>Detalle</Link></Button>
                 </CardContent>
             </Card>
         </Grid>)

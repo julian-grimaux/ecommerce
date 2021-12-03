@@ -1,25 +1,33 @@
 import { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom";
-import GetProducts from '../../services/Promise';
+import { useParams } from "react-router";
+import { getFirestore } from "../../services/getFirebase";
+
 import ItemDetail from './ItemDetail';
+import AnimationLoading from '../animationLoading/AnimationLoading';
 
 const ItemDetailContainer = () => {
-    const[item, setItem] = useState([]);
-    const { id } = useParams();
-    console.log(id);
-    
-    useEffect(() => {
-      GetProducts
-      .then(res => {
-        setItem(res.find((prod) => prod.Id === parseInt(id)));
+  const [item, setItem] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  let idStr = parseInt(id);
 
-       
+  useEffect(() => {
+    const db = getFirestore();
+    db.collection("items")
+      .where("id", "==", idStr)
+      .get()
+
+      .then((response) => {
+        response.forEach((doc) => {
+          setItem(doc.data());
+        });
       })
-      .catch(err => console.log('error al obtener el producto', err))
-     
-    },[])
-  
-    return (
-     <ItemDetail item= {item}/>
-    );};
-  export default ItemDetailContainer;
+      .catch(() => console.log("error"))
+      .finally(() => setLoading(false));
+  }, [idStr]);
+
+  return (
+       <ItemDetail item={item} />
+  );
+};
+export default ItemDetailContainer;

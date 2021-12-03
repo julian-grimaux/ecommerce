@@ -39,16 +39,16 @@ const ItemDetail = ({item}) => {
                 },
             }}
         >
-            <Paper elevation={24} className='Grid'>
+            <Paper elevation={24} className='Grid' key={item.id}>
             <Card className='cardImg'>
-                    <img src={item.Image} alt="" className='imgDetail' />
+                    <img src={item.image} alt="" className='imgDetail' />
                 </Card>
                 <CardMedia>
-                    <Typography variant='h3'>{item.Name}</Typography>
-                    <Typography variant='h5'>{item.Description}</Typography>
-                    <Typography variant ='h6'>US$ {item.Price}</Typography>
+                    <Typography variant='h3'>{item.name}</Typography>
+                    <Typography variant='h5'>{item.description}</Typography>
+                    <Typography variant ='h6'>US$ {item.price}</Typography>
                     <CardActions disableSpacing className='cardactions'>
-                        <Typography variant="h6" color="textSecondary"><span>stock:{item.Stock}</span></Typography>
+                        <Typography variant="h6" color="textSecondary"><span>stock:{item.stock}</span></Typography>
                     <ItemCount stock={item.stock} onAdd={onAdd}/>
                     </CardActions>
                 </CardMedia>

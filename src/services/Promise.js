@@ -6,7 +6,7 @@
           "Image":"https://img.dsncdn.net/full/011/jqB/HEq.jpg",
           "Description":"descripcion1",
           "Price":"59.99",
-          "Stock":"5"
+          "Stock":"5",
         },
         {
             "Id":2,
