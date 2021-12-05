@@ -1,33 +1,30 @@
 import { useState, useEffect } from 'react'
-import { useParams } from "react-router";
-import { getFirestore } from "../../services/getFirebase";
-
+import { useParams } from "react-router-dom";
+import app from '../../services/getFirebase'
+import { collection, getDocs, getFirestore,query,where } from "firebase/firestore"
 import ItemDetail from './ItemDetail';
 import AnimationLoading from '../animationLoading/AnimationLoading';
 
 const ItemDetailContainer = () => {
-  const [item, setItem] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const { id } = useParams();
-  let idStr = parseInt(id);
+    const [item, setItem] = useState([]);
+    const { id } = useParams();
 
-  useEffect(() => {
-    const db = getFirestore();
-    db.collection("items")
-      .where("id", "==", idStr)
-      .get()
+    useEffect(() => {
+        const db = getFirestore();
+        const itemsCollection = collection(db, "items");
+        const q = query (itemsCollection,where("id", "==", id));
 
-      .then((response) => {
-        response.forEach((doc) => {
-          setItem(doc.data());
-        });
-      })
-      .catch(() => console.log("error"))
-      .finally(() => setLoading(false));
-  }, [idStr]);
+            getDocs(q).then((snapshot) => {
+                snapshot.forEach((doc) => {
+                    setItem(doc.data());
+                });
+            })
+            .catch(() => console.log("error"))
+    }, [id]);
 
-  return (
-       <ItemDetail item={item} />
-  );
+    return (
+        <ItemDetail item={item}></ItemDetail>
+    );
 };
 export default ItemDetailContainer;
+

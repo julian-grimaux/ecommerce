@@ -12,7 +12,7 @@ const ItemList = ({ products }) => {
         <Fragment>
             <main className={classes.main}>
                 <Grid container justifyContent="center" spacing={4}>
-                    {products.map((i) => (
+                    {products.map((i)=>(
                         <Item
                             key={i.id}
                             id={i.id}

@@ -1,41 +1,32 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import ItemList from './ItemList';
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
-import AnimationLoading from '../animationLoading/AnimationLoading';
-import { getFirestore } from '../../services/getFirebase';
+import app from '../../services/getFirebase'
+import { collection, getDocs, getFirestore } from "firebase/firestore"
+
 
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-
     const { type } = useParams();
 
     useEffect(() => {
-        const db = getFirestore();
-        db.collection("items")
-            .get()
-            .then((response) => {
-                if (response.size === 0) {
-                    console.log("vacio");
+        const db = getFirestore(app);
+        const itemsCollection = collection(db, "items");
+        getDocs(itemsCollection)
+            .then((snapshot) => {
+                if(type === undefined) {
+                setProducts(snapshot.docs.map((doc)=>({id:doc.id,...doc.data()})))
                 } else {
-                    if (type === undefined) {
-                        setProducts(response.docs.map((i) => i.data()));
-                    } else {
-                        let data = response.docs.map((i) => i.data());
-                        setProducts(data.filter((i) => i.type === type));
-                    }
+                    let data = snapshot.docs.map((doc)=>({id:doc.id,...doc.data()}));
+                        setProducts(data.filter((doc)=> doc.type === type));
                 }
-            })
-            .catch((error) => {
-                console.log("Error searching items", error);
-            })
-            .finally(() => setLoading(false));
+    })
     }, [type]);
 
     return (
-            <ItemList products={products} />
+        <ItemList products={products} />
     );
 };
 export default ItemListContainer;

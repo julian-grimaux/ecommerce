@@ -6,11 +6,11 @@ import useStyles from './style';
 import './item.css';
 
 
-const Item = ({ id, image, stock, name, price, description, type}) => {
+const Item = ({ id, image, stock, name, price, description, type,key}) => {
     const classes = useStyles();
 
     return (
-        <Grid item key={id} xs={12} sm={6} md={4} lg={3}>
+        <Grid item key={key} xs={12} sm={6} md={4} lg={3}>
             <Card className='Card'>
                 <CardMedia className={classes.media} image={image} title={name} />
                 <CardContent>
