@@ -1,25 +1,20 @@
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import app from '../../services/getFirebase'
-import { collection, getDocs, getFirestore,query,where } from "firebase/firestore"
+import {getDoc,doc, getFirestore} from "firebase/firestore"
 import ItemDetail from './ItemDetail';
-import AnimationLoading from '../animationLoading/AnimationLoading';
+
 
 const ItemDetailContainer = () => {
+    let { id } = useParams();
     const [item, setItem] = useState([]);
-    const { id } = useParams();
 
     useEffect(() => {
-        const db = getFirestore();
-        const itemsCollection = collection(db, "items");
-        const q = query (itemsCollection,where("id", "==", id));
-
-            getDocs(q).then((snapshot) => {
-                snapshot.forEach((doc) => {
-                    setItem(doc.data());
-                });
-            })
-            .catch(() => console.log("error"))
+        const db = getFirestore(app);
+        const itemsCollection = doc(db, "items", id);
+         getDoc(itemsCollection).then((snapshot) => {
+             setItem({ id: snapshot.id, ...snapshot.data() })
+        });
     }, [id]);
 
     return (

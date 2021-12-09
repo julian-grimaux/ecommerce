@@ -1,0 +1,73 @@
+.buttonAddToCart{
+    margin-right: 10px;
+    margin-left: 50px !important;
+}
+
+.fontAddCart{
+    font-size: 1.2rem !important;
+}
+
+.buttonFinish{
+    font-size: 1.2rem !important;
+}
+
+.countContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 20em;
+    border-radius: 0.5rem;
+    background-color: rgba(0,0,0,0.1);
+    margin-left: 30px;
+}
+
+.button{
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    color: inherit;
+    border-radius: 0.5rem;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 250ms ease-in-out,
+    transform 50ms ease-in-out;
+}
+
+.button:hover{
+    background-color:rgb(255, 243, 243);
+}
+
+.button:active{
+    transform: scale(0.9);
+}
+
+.countNumber{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 8px;
+}
+
+@keyframes pulse{
+    0%, 100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .buttonContainer{
+       margin-left: 30px;
+    }
+    .buttonAddToCart{
+        margin-left: 50px !important;
+    }
+  }

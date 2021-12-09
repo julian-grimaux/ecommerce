@@ -1,23 +1,18 @@
 import React, { Fragment, useState } from 'react'
-import useStyles from '../itemListContainer/item/style'
 import { AddToCart, FinishButton, BackHome } from '../buttons/Buttons';
+import '../buttons/buttons.css'
 
-const ItemCount = ({ Stock, onAdd }) => {
-
-    const classes = useStyles();
+const ItemCount = ({ stock,onAdd }) => {
 
     const initial = 1;
     const [count, setCount] = useState(initial);
     const [display, setDisplay] = useState("hidden");
 
-    const handleSumCount = () => {
-        if (count == Stock) return;
-        setCount(count + 1);
+    const handleClickAdd = () => {
+        count < stock ? setCount(count + 1) : setCount(count);
     };
-
-    const handleSubtractCount = () => {
-        if (count == 0) return;
-        setCount(count - 1);
+    const handleClickRemove = () => {
+        count === 1 ? setCount(1) : setCount(count - 1);
     };
 
     const handleOnAdd = () => {
@@ -28,15 +23,14 @@ const ItemCount = ({ Stock, onAdd }) => {
 
     return (
         <Fragment>
-            <div className={classes.countcontainer}>
-                <div className={classes.buttoncontainer}>
-                    <button onClick={handleSumCount} className='button'>+</button>
-                    <h1 className={count > 0 ? "positive" : "negative"}>{count}</h1>
-                    <button onClick={handleSubtractCount} className='button'>-</button>
+        <div className="countContainer">
+                <div className="buttonContainer">
+                    <button onClick={handleClickAdd} className='button'>+</button>
+                    <h1 className="countNumber">{count}</h1>
+                    <button onClick={handleClickRemove} className='button'>-</button>
                 </div>
-            </div>
             {display === "block" ? (
-                <div className="space-y-2">
+                <div className="buttonFinishHome">
                     <FinishButton />
                     <BackHome />
                 </div>
@@ -45,6 +39,7 @@ const ItemCount = ({ Stock, onAdd }) => {
                     <AddToCart setDisplay={setDisplay} handleOnAdd={handleOnAdd} />
                 </>
             )}
+        </div>    
         </Fragment>
     )
 }

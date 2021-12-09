@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import ItemCart from '../itemCart/ItemCart'
 import "./Cart.css"
+import Form from '../Form/Form';
 
 const Cart = () => {
   const { cart, clearCart, cartWidgetItems, totalPrice } = useCartContext();
@@ -70,6 +71,9 @@ const Cart = () => {
             <div className="flexButtons">
             <ButtonPrimary to="/products" text="Seguir comprando"/>
             <ButtonClearCart clearCart={clearCart} />
+            </div>
+            <div>
+              <Form/>
             </div>
           </Fragment>
         </>

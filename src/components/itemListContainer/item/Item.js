@@ -22,7 +22,8 @@ const Item = ({ id, image, stock, name, price, description, type,key}) => {
                             US$ {price}
                         </Typography>
                     </div>
-                    <Button variant="contained" color="secondary" className='buttonDetail'><Link to={`/item/${id}`}>Detalle</Link></Button>
+                    <Button variant="contained" color="secondary" className='buttonDetail'><Link to={`/item/${id}`}>Comprar</Link></Button>
+                    <Button variant="contained" color="inerith" className='buttonDetail'><Link to={`/item/${id}`}>Detalle</Link></Button>
                 </CardContent>
             </Card>
         </Grid>)

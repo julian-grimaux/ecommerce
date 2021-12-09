@@ -3,7 +3,7 @@ import ItemList from './ItemList';
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import app from '../../services/getFirebase'
-import { collection, getDocs, getFirestore } from "firebase/firestore"
+import { collection, getDocs, getFirestore,orderBy,query } from "firebase/firestore"
 
 
 
@@ -14,7 +14,8 @@ const ItemListContainer = () => {
     useEffect(() => {
         const db = getFirestore(app);
         const itemsCollection = collection(db, "items");
-        getDocs(itemsCollection)
+        const q = query(itemsCollection,orderBy("name"));
+        getDocs(q)
             .then((snapshot) => {
                 if(type === undefined) {
                 setProducts(snapshot.docs.map((doc)=>({id:doc.id,...doc.data()})))

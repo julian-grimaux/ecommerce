@@ -1,0 +1,53 @@
+ <span
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleMenu}
+              color="inherit"
+              className="spanProducts"
+            >
+              Productos
+            </span>
+            <Link to="/contacto"><span>Contacto</span></Link>
+          </div>
+          <Link to="/cart" className="cartWidget"><CartWidget /></Link>
+          <div>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>Rifles</MenuItem>
+              <MenuItem onClick={handleClose}>Pistolas</MenuItem>
+              <MenuItem onClick={handleClose}>SMG</MenuItem>
+            </Menu>
+          </div>
+
+
+
+           <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            className="button"
+            onClick={() => setShowLinks(!showLinks)}
+          >
+            {""}
+            <MenuIcon className="iconButton" />
+          </IconButton>
+
+          import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu'

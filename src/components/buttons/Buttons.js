@@ -4,13 +4,14 @@ import { AddShoppingCart } from '@material-ui/icons';
 import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import '../Cart/Cart.css'
+import './buttons.css'
 
 
 const Alert = () => {
     Swal.fire({
         position: 'bottom-end',
         title:'Tu producto se añadió al carrito',
-        width:'20%',
+        width:'50%',
         icon:'success',
         showConfirmButton:false,
         timerProgressBar:true,
@@ -24,8 +25,9 @@ export const AddToCart = ({handleOnAdd}) => {
         <Button onClick={()=>{
             handleOnAdd()
             Alert()
-        }}>
-            <Typography>Add to Cart</Typography>
+        }}
+        className="buttonAddToCart">
+            <Typography className="fontAddCart">Añadir al carrito</Typography>
                 <AddShoppingCart />
         </Button>
     )
@@ -85,7 +87,7 @@ export const ButtonPrimary = ({text}) => (
         className=""
       >
         <Button>
-        <span className="">Seguir Comprando</span>
+        <span className="buttonFinish">Seguir Comprando</span>
         </Button>     
       </Link>
     );
@@ -98,7 +100,7 @@ export const ButtonPrimary = ({text}) => (
         className=""
       >
         <Button>
-        <span className="">Terminar compra</span>
+        <span className="buttonFinish">Terminar compra</span>
         </Button>
       </Link>
     );

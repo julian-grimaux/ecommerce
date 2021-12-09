@@ -1,9 +1,10 @@
 .Grid{
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    height: 100% !important;
 }
 .cardImg{
-    height: 68.3%;
+    height: 70%;
     max-width: 100%;
     margin: 20px;
     box-shadow: 10px 10px 10px rgb(182, 180, 180) !important;
@@ -15,12 +16,54 @@
 
 .imgDetail{
     width: 100%;
-    height: auto;
+    height: 100%;
+}
+
+.cardactions{
+    display: flex;
+    align-items: center;
+}
+
+.flexTxt{
+   margin-top: 60px;
+}
+
+.txtName{
+    text-align: start;
+    margin: 0px 0px 10px 10px !important;
+}
+
+.txtDescription{
+    text-align: start;
+    font-size: 1.25rem !important;
+    margin: 10px !important;
+    color: rgba(0,0,0,0.7);
+}
+
+.txtStock{
+    text-align: start;
+    margin: 10px !important;
+}
+
+.txtPrice{
+    text-align: start;
+    margin: 10px !important;
 }
 
 @media (max-width: 768px) {
     .Grid{
         display: grid;
         grid-template-columns: 1fr;
+    }
+    .cardImg{
+        height: 100%;
+    }
+
+    .imgDetail{
+        height: 100%;
+    }
+
+    .txtName{
+        text-align: center;
     }
   }

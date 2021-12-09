@@ -25,7 +25,6 @@ const ItemDetail = ({item}) => {
             justifyContent: 'start',
             ml: 6.7,
         }}>
-            <Button className="buttonBackProducts"><Link to="/products">Productos</Link></Button>
         </Box>
         <Box
             sx={{
@@ -44,11 +43,13 @@ const ItemDetail = ({item}) => {
                     <img src={item.image} alt="" className='imgDetail' />
                 </Card>
                 <CardMedia>
-                    <Typography variant='h3'>{item.name}</Typography>
-                    <Typography variant='h5'>{item.description}</Typography>
-                    <Typography variant ='h6'>US$ {item.price}</Typography>
+                        <div className="flexTxt">
+                    <Typography variant='h3' className="txtName">{item.name}</Typography>
+                    <Typography variant='h6' className="txtDescription">{item.description}</Typography>
+                    <Typography variant='h5' className="txtPrice">US$ {item.price}</Typography>
+                    <Typography variant="h6" color="textSecondary" className="txtStock"><span>stock:{item.stock}</span></Typography>
+                        </div>
                     <CardActions disableSpacing className='cardactions'>
-                        <Typography variant="h6" color="textSecondary"><span>stock:{item.stock}</span></Typography>
                     <ItemCount stock={item.stock} onAdd={onAdd}/>
                     </CardActions>
                 </CardMedia>
