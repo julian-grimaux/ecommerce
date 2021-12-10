@@ -57,4 +57,12 @@
     .flexQuantity{
         flex-direction: column;
     }
+
+    .txtPrice{
+        text-align: center !important;
+    }
+
+    .txtStock{
+        text-align: center !important;
+    }
 }

@@ -24,7 +24,7 @@ const Navbar = () => {
     <Fragment>
       <div className="navbar">
         <div className="leftSide">
-          <img src={"https://imgur.com/JONKuKS.png"} className="logo"></img>
+          <Link to="/"><img src={"https://imgur.com/JONKuKS.png"} className="logo"></img></Link>
         </div>
         <div className="rightSide">
           <div className="links" id={showLinks ? "hidden" : ""}>

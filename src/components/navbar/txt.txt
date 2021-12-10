@@ -1,53 +1,97 @@
- <span
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-              className="spanProducts"
-            >
-              Productos
-            </span>
-            <Link to="/contacto"><span>Contacto</span></Link>
-          </div>
-          <Link to="/cart" className="cartWidget"><CartWidget /></Link>
-          <div>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Rifles</MenuItem>
-              <MenuItem onClick={handleClose}>Pistolas</MenuItem>
-              <MenuItem onClick={handleClose}>SMG</MenuItem>
-            </Menu>
-          </div>
+ const [buttonState, setButtonState] = useState(true);
+  const [formInfo, setFormInfo] = useState({
+    name:"",
+    phone:"",
+    email:"",
+  });
+
+  const handleChange = (e) => {
+    setFormInfo({...formInfo, [e.target.name]: e.target.value});
+  };
+
+  function checkOut() {
+    setButtonState(false);
+    const order ={
+      buyer: formInfo,
+      items: cart,
+      total: total,
+    };
+
+    const db = getFirestore(app);
+
+    const ordersCollection= collection(db,"orders");
+    addDoc(ordersCollection,order).then((data)=> {
+      clearCart(data);
+      Swal.fire(
+        '¡Compra Exitosa!',
+        "Tu número de orden es " + (data.id),
+        'success'
+    )
+    })
+  }
 
 
+  ///////////////////////////////////////////
 
-           <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            className="button"
-            onClick={() => setShowLinks(!showLinks)}
-          >
-            {""}
-            <MenuIcon className="iconButton" />
-          </IconButton>
 
-          import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu'
+   const [formData, setFormData] = useState({
+        name: "",
+        tel: "",
+        email: "",
+    })
+
+    const handleOnSubmit = (e) => {
+        e.preventDefault()
+
+        let order = {}
+
+        order.date = new Date();
+        order.buyer = formData
+        order.total = total;
+
+        order.items = cart.map(cartItems => {
+            const id = cartItems.item.id;
+            const name = cartItems.item.name;
+            const price = cartItems.item.price * cartItems.quantity;
+
+            return { id, name, price }
+        })
+
+        const db = getFirestore(app)
+        const orderCollection = collection(db,'orders')
+
+        if (formData.email === formData.emailConf) {
+
+            addDoc(orderCollection,order)
+                .then(resp => Swal.fire(
+                    '¡Compra Exitosa!',
+                    "Tu número de orden es " + (resp.id),
+                    'success'
+                ))
+                .catch(err => console.log(err))
+                .finally(() => {
+                    setFormData({
+                        name: '',
+                        tel: '',
+                        email: ''
+                    })
+                    clearCart()
+                }
+                )
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Los mails ingresados deben coincidir',
+            })
+        }
+
+    }
+
+    function handleOnChange(e) {
+
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
+    }

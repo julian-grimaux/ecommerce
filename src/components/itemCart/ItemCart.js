@@ -1,11 +1,9 @@
-import { Button } from '@material-ui/core';
 import React, { Fragment } from 'react'
 import { useCartContext } from '../../CartContext/CartContext'
 import { RemoveIcon } from "../buttons/Buttons"
 import './itemCart.css'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { Card, CardMedia, CardActions, Typography, } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 const ItemCart = ({ name, price, image, id, quantity }) => {
@@ -15,6 +13,7 @@ const ItemCart = ({ name, price, image, id, quantity }) => {
   return (
     <Fragment>
       <Box
+        className='boxItemCart'
         sx={{
           display: 'flex',
           flexWrap: 'wrap',

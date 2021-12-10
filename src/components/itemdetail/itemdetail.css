@@ -3,6 +3,7 @@
     grid-template-columns: repeat(2,1fr);
     height: 100% !important;
 }
+
 .cardImg{
     height: 70%;
     max-width: 100%;

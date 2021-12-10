@@ -1,0 +1,15 @@
+.footer{
+    background-color:white;
+    color: rgb(32,31,36);
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.imgGit{
+    height: 40px;
+    width: 40px;
+    margin-top: 20px;
+}
